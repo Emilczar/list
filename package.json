@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Emilczar/list/issues"
   },
-  "homepage": "https://github.com/Emilczar/list#readme"
+  "homepage": "https://github.com/Emilczar/list#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
 }
