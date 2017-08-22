@@ -3,6 +3,7 @@ const router = express.Router();
 
 router.get("/",(req,res)=>{
     console.log("strona new list");
+    console.log("test new list  " +__dirname)
     res.send("strona new list");
 })
 
