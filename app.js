@@ -32,14 +32,14 @@ let stan = 1;
 
 app.post('/test', (req, res)=> {
     console.log(req.body);
-    res.json(req.body)
+   
 
-   /*  baza.createList(req.body)
-    .then((data)=> {res.send(data);
+  baza.createList(req.body)
+    .then((data)=> {res.json(data);
         console.log("wynik zapytania "+ req.body)
     })
-    .catch((err)=>{console.log(`error: ${err}`)})
-     */
+    .catch((err)=>{console.log(`error app.js: ${err}`)})
+     
 });
 
 app.listen(3000, function() {

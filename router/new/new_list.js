@@ -12,7 +12,8 @@ router.get("/",(req,res)=>{
 })
 
 router.post("/",(req,res)=>{
-
+    db.createList(req.body)
+    .then( console.log("strona new list"))
     console.log("strona new list");
     res.send("NEW_LIST POST");
 })
