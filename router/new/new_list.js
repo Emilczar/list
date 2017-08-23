@@ -1,5 +1,9 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+const db = require("../../db/index.js")
 
 router.get("/",(req,res)=>{
     console.log("strona new list");
@@ -8,6 +12,7 @@ router.get("/",(req,res)=>{
 })
 
 router.post("/",(req,res)=>{
+
     console.log("strona new list");
     res.send("NEW_LIST POST");
 })

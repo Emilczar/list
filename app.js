@@ -2,6 +2,9 @@ const express = require('express');
 const api = require('./router/index')
 const app = express();
 
+
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 const baza = require("./db/index.js")
 
 app.use('/api', api);
@@ -20,16 +23,23 @@ app.get("/",(req,res)=>{
 
 });
 
+const id = "599cadfc734d1d647d03db5f"
+const obj = {
+    stan: 1
+}
 
-app.get('/test', (req, res)=> {
-    baza.findAll()
+let stan = 1;
+
+app.post('/test', (req, res)=> {
+    console.log(req.body);
+    res.json(req.body)
+
+   /*  baza.createList(req.body)
     .then((data)=> {res.send(data);
-        console.log("wynik zapytania "+ data)
+        console.log("wynik zapytania "+ req.body)
     })
     .catch((err)=>{console.log(`error: ${err}`)})
-    
-    
-  
+     */
 });
 
 app.listen(3000, function() {
