@@ -19,17 +19,6 @@ const List = mongoose.model("Lista", new Schema({
     collection: 'lista'
 }))
 
-/* function findAll(cb) {
-
-    List.find({}, (err, data) => {
-        if (err) {
-            cb(err);
-        } else {
-            cb(null, data)
-        }
-    });
-} */
-
 function findAll() {
     return List.find({})
         .then((data) => data)
@@ -38,73 +27,86 @@ function findAll() {
         })
 }
 
-function getID(id){
+function getID(id) {
     return List.findById(id)
-    .then((data)=>data)
-    .catch((err)=>{
-        console.log(`error: ${err}`)
-    })
+        .then((data) => data)
+        .catch((err) => {
+            console.log(`error: ${err}`)
+        })
 }
 
-function deleteID(id){
+function deleteID(id) {
     return List.findByIdAndRemove(id)
-    .then((data)=>data)
-    .catch((err)=>{
-        console.log(`error: ${err}`)
-    })
+        .then((data) => data)
+        .catch((err) => {
+            console.log(`error: ${err}`)
+        })
 }
 
-function addList(id, obj){
+function addList(id, obj) {
 
-    return List.findByIdAndUpdate(id, {$push:{ list : obj }},{new : true})
-    .then(data => data)
-    .catch(err => {
-        console.log(`error: ${err}`)
-    })
-}
-
-
-function newList(id, obj)
-{
-    return List.findByIdAndUpdate(id, {list: obj})
-    .then(data=>data)
-    .catch(err =>{
-        console.log(`error: ${err}`)
-    })
-}
-
-function changeStan(id,obj){
-    return List.findByIdAndUpdate(id,{stan :obj})
-    .then(data=>data)
-    .catch(err =>{
-        console.log(`error: ${err}`)
-    })
+    return List.findByIdAndUpdate(id, {
+            $push: {
+                list: obj
+            }
+        }, {
+            new: true
+        })
+        .then(data => data)
+        .catch(err => {
+            console.log(`error: ${err}`)
+        })
 }
 
 
-function findAllStan(status){
-    return List.find({stan: status})
-    .then(data =>data)
-    .catch((err)=>{
-        console.log(`error: ${err}`)
-    })
+function newList(id, obj) {
+    return List.findByIdAndUpdate(id, {
+            list: obj
+        })
+        .then(data => data)
+        .catch(err => {
+            console.log(`error: ${err}`)
+        })
 }
 
-function findAllStanRemove(status){
-    return List.find({stan: status})
-    .remove()
-    .then(data =>data)
-    .catch((err)=>{
-        console.log(`error: ${err}`)
-    })
+function changeStan(id, obj) {
+    return List.findByIdAndUpdate(id, {
+            stan: obj
+        })
+        .then(data => data)
+        .catch(err => {
+            console.log(`error: ${err}`)
+        })
 }
 
-function createList(obj){
+
+function findAllStan(status) {
+    return List.find({
+            stan: status
+        })
+        .then(data => data)
+        .catch((err) => {
+            console.log(`error: ${err}`)
+        })
+}
+
+function findAllStanRemove(status) {
+    return List.find({
+            stan: status
+        })
+        .remove()
+        .then(data => data)
+        .catch((err) => {
+            console.log(`error: ${err}`)
+        })
+}
+
+function createList(obj) {
     return List.create(obj)
-    .then(data=>data)
-    .catch((err)=>{
-        console.log(`error: ${err}`)
-    })
+        .then(data => data)
+        .catch((err) => {
+            console.log(`error: ${err}`)
+        })
 }
 
 

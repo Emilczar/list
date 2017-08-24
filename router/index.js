@@ -13,18 +13,6 @@ router.get("/",(req,res)=>{
     res.send("api głowny")
 })
 
-router.get("/:id",(req,res)=>{
-    console.log("id list")
-    res.send("id list")
-})
-
-router.delete("/:id",(req,res)=>{
-    console.log("delete list id")
-    res.send("delete list id")
-})
-
-
-
 module.exports = router;
 
 
