@@ -1,1 +1,1 @@
-angular.module('appMy',[]);
+const app = angular.module('appMy',[]);
