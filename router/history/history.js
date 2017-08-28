@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../../db/index")
-const history = 1
+const history = 0 // zmiena informuje ze dane należa do danych historycznych
 
-
+//logika zrobiona
 router.get("/", (req, res) => {
     db.findAllStan(history)
         .then(data => {

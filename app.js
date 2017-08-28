@@ -31,10 +31,8 @@ const obj = {
 let stan = 1;
 
 app.post('/test', (req, res)=> {
-    console.log(req.body);
-   
-
-  baza.createList(req.body)
+   // console.log("testy: "+ req.body);
+    baza.createList(req.body)
     .then((data)=> {res.json(data);
         console.log("wynik zapytania "+ req.body)
     })
