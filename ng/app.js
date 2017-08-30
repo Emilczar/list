@@ -1,6 +1,28 @@
-const myApp = angular.module('myApp',[]);
+const myApp = angular.module('myApp', []);
 
-myApp.controller('GreetingController', ['$scope', function($scope) {
+/*  myApp.controller('GreetingController', ['$scope', ($scope)=>{
   $scope.greeting = 'Holaaa!';
 
-}]);
+}]);  */
+
+myApp.controller('ConList', ['$scope', '$http', ($scope, $http) => {
+
+  $scope.getList = ()=> {
+    $http.get('/api/lists')
+      .then((res) => {
+        // $scope.dane = JSON.stringify(res.data)
+        $scope.dane = res.data
+        console.log("Lists: " + JSON.stringify(res.data))
+      })
+  }
+
+  $scope.getListId = function(id){
+    $http.get('/api/lists/'+id)
+    .then((res)=>{
+      $scope.daneID = res.data
+      console.log("ID: " + JSON.stringify(res.data))
+    })
+  }
+ 
+
+}])

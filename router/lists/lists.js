@@ -5,16 +5,29 @@ const db = require("../../db/index.js")
 //logika zrobiona
 
 router.get("/", (req, res) => {
-    console.log("lista all")
+    console.log("api/lists/")
     db.findAll()
         .then(data => {
-            res.json(data)
+         
+        res.json(data)
+            console.log("Wysłanie JSON z danymi z List: ")
         })
         .catch((err) => {
             console.log(`error lists.js: ${err}`)
         })
 })
 
+router.get("/:id",(req,res)=>{
+    console.log("api/lists/id")
+    db.getID(req.params.id)
+    .then(data=>{
+        res.json(data)
+        console.log("Wysłanie JSON z danymi z List ID: ")
+    })
+    .catch((err) => {
+        console.log(`error lists.js: ${err}`)
+    })
+})
 
 router.put("/:id", (req, res) => {
     console.log("edit list ")
