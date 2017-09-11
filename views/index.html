@@ -13,31 +13,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
     <div>
+
+
         <div ng-controller="ConList">
-            <button type="button" class="btn btn-primary" ng-click="getList()">Lists</button>
+            <button type="button" class="btn btn-primary text-center" ng-click="getList()">Lists</button>
             <button type="button" class="btn btn-primary">NEW</button>
             <button type="button" class="btn btn-primary">Historia</button>
             <div ng-repeat="x in dane">
-                <div class="list-group">
-                    <a ng-click="getListId(x._id)" class="list-group-item list-group-item-action">{{x.name}}</a>
-                        <div ng ng-repeat="y in daneID">
-                            <div class="list-group">
-                                <a  class="list-group-item list-group-item-action list-group-item-success">{{y.name}}</a>
+                <div class="list-group text-center">
+                    <a ng-click="getListId(x._id)" class="list-group-item list-group-item-action text-center">{{x.name}}</a> 
 
-                            </div>
-                            
-                        </div>
                 </div>
-            
+            </div>
 
+            <div ng ng-repeat="y in daneID">
+                <div class="list-group text-center">
+                    <a  class="text-center">{{y.name}} {{y.status}}</a>
 
+                </div>
+                
             </div>
         </div>
+
+
+        
     </div>
 </body>
 </html>

@@ -19,8 +19,9 @@ myApp.controller('ConList', ['$scope', '$http', ($scope, $http) => {
   $scope.getListId = function(id){
     $http.get('/api/lists/'+id)
     .then((res)=>{
-      $scope.daneID = res.data
+      $scope.daneID = res.data.list
       console.log("ID: " + JSON.stringify(res.data))
+      console.log("ID res.data: " +res.data.list )
     })
   }
  
