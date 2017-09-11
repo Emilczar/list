@@ -2,6 +2,7 @@
 <html lang="pl" ng-app="myApp">
 
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,16 +15,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
-    <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/service/service.js"></script>
 </head>
 <body>
-    <div>
+    
 
+<!-- app_test 
+       <div ng-controller="ConList_test">
+            <button type="button" class="btn btn-primary text-center" ng-click="getList()">Lists_test</button>
+            <button type="button" class="btn btn-primary">NEW_test</button>
+            <button type="button" class="btn btn-primary">Historia_test</button>
 
-        <div ng-controller="ConList">
-            <button type="button" class="btn btn-primary text-center" ng-click="getList()">Lists</button>
-            <button type="button" class="btn btn-primary">NEW</button>
-            <button type="button" class="btn btn-primary">Historia</button>
+            
             <div ng-repeat="x in dane">
                 <div class="list-group text-center">
                     <a ng-click="getListId(x._id)" class="list-group-item list-group-item-action text-center">{{x.name}}</a> 
@@ -39,9 +44,16 @@
                 
             </div>
         </div>
+ -->
 
 
-        
-    </div>
+<div>
+    <a  class="btn btn-primary" href="/lists" role="button">Lista</a>
+</div>
+<div ng-view>
+    
+
+</div>  
+  
 </body>
 </html>

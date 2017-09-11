@@ -1,29 +1,47 @@
-const myApp = angular.module('myApp', []);
 
-/*  myApp.controller('GreetingController', ['$scope', ($scope)=>{
-  $scope.greeting = 'Holaaa!';
 
-}]);  */
+const app = angular.module('myApp',['ngRoute','dbService']);
 
-myApp.controller('ConList', ['$scope', '$http', ($scope, $http) => {
+app.config(['$routeProvider','$locationProvider',($routeProvider,$locationProvider)=>{
 
-  $scope.getList = ()=> {
-    $http.get('/api/lists')
-      .then((res) => {
-        // $scope.dane = JSON.stringify(res.data)
-        $scope.dane = res.data
-        console.log("Lists: " + JSON.stringify(res.data))
-      })
-  }
-
-  $scope.getListId = function(id){
-    $http.get('/api/lists/'+id)
-    .then((res)=>{
-      $scope.daneID = res.data.list
-      console.log("ID: " + JSON.stringify(res.data))
-      console.log("ID res.data: " +res.data.list )
+    $routeProvider
+    .when('/lists',{
+        controller:  'ContrList',
+        templateUrl: '/views/lists.html'
+      
     })
-  }
- 
+    .when('/inne',{
+        templateUrl: '/views/inne.html',
+    })
+    .when('/lists/:id',{
+        templateUrl: '',
+    }
+
+    )
+    .otherwise({
+        redirectTo: '/inne'
+    })
+
+    $locationProvider
+    .html5Mode(true);
 
 }])
+
+
+
+app.controller('ContrTest',['$scope',function($scope){
+    alert('test')
+}])
+
+
+
+ app.controller('ContrList',['$scope', 'dbList',function($scope,dbList){
+    
+    $scope.lists ={};
+    dbList.getList((res)=>{
+        $scope.lists = res.data;
+        
+    })
+    console.log("wynik  " +$scope.lists);
+}]) 
+
