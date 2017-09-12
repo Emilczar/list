@@ -23,7 +23,7 @@ function findAll() {
     return List.find({})
         .then((data) => data)
         .catch((err) => {
-            console.log("errro")
+            console.log(`error findAll: ${err}`)
         })
 }
 
@@ -31,7 +31,7 @@ function getID(id) {
     return List.findById(id)
         .then((data) => data)
         .catch((err) => {
-            console.log(`error: ${err}`)
+            console.log(`error getID: ${err}`)
         })
 }
 
@@ -54,7 +54,7 @@ function addList(id, obj) {
         })
         .then(data => data)
         .catch(err => {
-            console.log(`error: ${err}`)
+            console.log(`error addList : ${err}`)
         })
 }
 

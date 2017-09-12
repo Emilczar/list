@@ -10,25 +10,42 @@
                     cb(data);
                 })
         }
-        return {
-            getList: _getList
-        };
-    }])
 
+        const _getIdList = (id,cb)=>{
+            cb = cb|| function(){};
+            
+            $http.get('api/lists/'+id)
+            .then((res) => {
+                console.log(`cb dbIdList :  ${JSON.stringify(res.data.list)}`)
+                cb(res)
+            })
+            .catch((err)=>{
+                console.log(`error dbIdList :  ${err}`)
+            })
+        }
 
-    app.factory('dbIdList',[$http,($http)=>{
-        const _getIdList = (cb)=>{
-            cb = cb || function () {};
-            $http.get('api/lists/:id')
-            .then((data) => {
-                cb(data);
+        const _addList = (id, data)=>{
+
+            
+            $http.put('api/lists/'+id , data)
+            .then((data)=>{
+                console.log(`editList :  ${data}`)
+            })
+            .catch((err)=>{
+                console.log(`error dbIdList :  ${err}`)
             })
         }
         return {
-            getIdList: _getIdList
+            getList: _getList,
+            getIdList: _getIdList,
+            addList: _addList
         };
-
     }])
+
+
+ 
+
+  
 
 
 })();

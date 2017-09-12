@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
             console.log(`error lists.js: ${err}`)
         })
 })
-
+// pobierze dane wybranego elementu za pomocą ID
 router.get("/:id",(req,res)=>{
     console.log("api/lists/id")
     db.getID(req.params.id)
@@ -28,7 +28,7 @@ router.get("/:id",(req,res)=>{
         console.log(`error lists.js: ${err}`)
     })
 })
-
+//edycja wybranego elementu po ID
 router.put("/:id", (req, res) => {
     console.log("edit list ")
     db.addList(req.params.id, req.body)
@@ -39,7 +39,7 @@ router.put("/:id", (req, res) => {
             console.log(`error lists.js: ${err}`)
         })
 })
-
+// usun All
 router.delete("/all", (req, res) => {
     console.log("delete all list")
     let status = 1; // zmienna informujcaca że dane należa do aktualnych list
@@ -49,7 +49,7 @@ router.delete("/all", (req, res) => {
             console.log(`error z usuwaniem listy: ${err}`)
         })
 })
-
+// usun wybrany element po ID
 router.delete("/:id", (req, res) => {
     console.log("delete id from list")
     db.deleteID(req.params.id)
@@ -60,7 +60,7 @@ router.delete("/:id", (req, res) => {
             console.log(`error z usuwaniem ID z listy: ${err}`)
         })
 })
-
+// Wykonanie listy
 router.post("/:id", (req, res) => {
     console.log("close list")
     let status = 0 ; // zmienna informujcaca że dane należa do listy historycznej
