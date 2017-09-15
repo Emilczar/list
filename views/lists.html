@@ -1,9 +1,10 @@
-<div>
+<div class="container">
+    
 
-<h1>testy</h1>
-<div ng-repeat="x in lists">
-        <div class="list-group text-center">
-            <a  href="/lists/{{x._id}}" class="list-group-item list-group-item-action text-center">{{x.name}}</a> 
+<h1>lista</h1>
+<div ng-repeat="x in lists" class="">
+        <div class="list-group text-center row">
+            <a  href="/lists/{{x._id}}" class=" col align-self-center btn-lg col-sm-4 list-group-item list-group-item-action text-center"><h4>{{x.name}}</h4></a> 
 
         </div>
     </div>

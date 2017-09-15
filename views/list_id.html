@@ -1,7 +1,9 @@
-<div>
+<div class="container">
+    
+
     <h3>id_list</h3>
 <h1>{{name}}</h1>
-<div ng-repeat="y in list">
+<div  ng-repeat="y in list">
     <div class="list-group text-center">
         <a  class="text-center">{{y.name}} {{y.status}}</a>
 
@@ -9,4 +11,6 @@
     
     </div>
     <a href="/lists/zm/{{id}}">dodaj do listy</a>
+
+    <button type="submit" class="btn btn-primary" ng-click="addList()" >zmiana</button>
 </div>

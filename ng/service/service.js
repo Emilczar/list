@@ -1,6 +1,7 @@
 (function () {
     const app = angular.module('dbService', [])
 
+    // service do pobierania całej listy TODO
     app.factory('dbList', ['$http', ($http) => {
 
         const _getList = (cb) => {
@@ -10,7 +11,7 @@
                     cb(data);
                 })
         }
-
+        // funkcja do pobierania danych z wybranej listy 
         const _getIdList = (id,cb)=>{
             cb = cb|| function(){};
             
@@ -23,10 +24,8 @@
                 console.log(`error dbIdList :  ${err}`)
             })
         }
-
-        const _addList = (id, data)=>{
-
-            
+        // funkcja do dodawania wybranej listy TODO kolejnego zadania
+        const _addList = (id, data)=>{  
             $http.put('api/lists/'+id , data)
             .then((data)=>{
                 console.log(`editList :  ${data}`)
