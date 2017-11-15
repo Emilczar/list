@@ -34,10 +34,23 @@
                 console.log(`error dbIdList :  ${err}`)
             })
         }
+        // funkcja do create new list
+
+        const _createList = (data)=>{
+            $http.post('api/new' ,data)
+            .then((data)=>{
+                console.log(`newList :  ${data}`)
+            })
+            .catch((err)=>{
+                console.log(`error newList :  ${err}`)
+            })
+        }
+
         return {
             getList: _getList,
             getIdList: _getIdList,
-            addList: _addList
+            addList: _addList,
+            createList: _createList
         };
     }])
 

@@ -13,11 +13,13 @@ app.use(bodyParser.json());
 
 app.use('/js',express.static(path.join(__dirname, 'ng')))
 app.use('/views',express.static(path.join(__dirname,"views")))
+app.use('/css',express.static(path.join(__dirname,'css')))
 app.use('/api', api);
+
 
 app.get('*', (req, res) => {
     
-    res.sendfile(path.join('views','index.html'))
+    // res.sendfile(path.join('vpPiews','index.html'))
 
 });
 

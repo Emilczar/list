@@ -1,16 +1,38 @@
-<div class="container">
+<div class="container-fluid">
     
 
-    <h3>id_list</h3>
+<div class="nameID">
 <h1>{{name}}</h1>
-<div  ng-repeat="y in list">
-    <div class="list-group text-center">
-        <a  class="text-center">{{y.name}} {{y.status}}</a>
+</div>
 
-    </div>
+
+
     
-    </div>
-    <a href="/lists/zm/{{id}}">dodaj do listy</a>
+   
+
+<table class="table table-striped table-inverse">
+
+    
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>nazwa</th>
+            <th>Edycja</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="y in list">
+        <tr>
+            <td scope="row "></td>
+            <td>{{y.name}}</td>
+            <td></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+
+
+<a href="/lists/zm/{{id}}">dodaj do listy</a>
 
     <button type="submit" class="btn btn-primary" ng-click="addList()" >zmiana</button>
 </div>
