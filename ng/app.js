@@ -47,7 +47,7 @@ app.controller('ContrList', ['$scope', 'dbList', function ($scope, dbList) {
     })
     console.log("wynik     " + $scope.lists);
 }])
-
+//testy
 
 // controler do pobrania dokladej listy zadan po ID 
 app.controller('ContrIdList', ['$scope', 'dbList', '$routeParams', '$window', function ($scope, dbList, $routeParams, $window) {
