@@ -10,7 +10,7 @@ router.use("/lists",lists)
 
 router.get("/",(req,res)=>{
     console.log("api głowny");
-    res.send("api głowny")
+    res.send("api głowny");
 })
 
 module.exports = router;
