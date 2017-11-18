@@ -17,10 +17,8 @@ app.use('/css',express.static(path.join(__dirname,'css')))
 app.use('/api', api);
 
 
-app.get('*', (req, res) => {
-    
-    // res.sendfile(path.join('vpPiews','index.html'))
-
+app.get('*', (req, res) => { 
+    res.sendfile(path.join('views','index.html'))
 });
 
 
